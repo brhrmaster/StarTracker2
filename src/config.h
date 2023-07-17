@@ -13,16 +13,16 @@
 
 /* ======================================== MOUNT ======================================= */
 
-#define REDUCTION_RATIO_DEC     8              // reduction ratio of DEC motor gearbox (1:8)
-#define REDUCTION_RATIO_RA      8              // reduction ratio of RA motor gearbox (1:8)
-#define DEG_PER_MOUNT_REV_DEC   5.37313432836  // reduction ratio of DEC mount gears (1:67)
-#define DEG_PER_MOUNT_REV_RA    5.37313432836  // reduction ratio of DEC mount gears (1:134)
+#define REDUCTION_RATIO_DEC     2              // reduction ratio of DEC motor gearbox (1:8)
+#define REDUCTION_RATIO_RA      2              // reduction ratio of RA motor gearbox (1:8)
+#define DEG_PER_MOUNT_REV_DEC   4.5714285714286  // reduction ratio of DEC mount gears (1:67)
+#define DEG_PER_MOUNT_REV_RA    4.5714285714286  // reduction ratio of DEC mount gears (1:134)
 
 #define DIRECTION_DEC           0    // 1 or 0 to swap DEC movement direction
-#define DIRECTION_RA            0    // 1 or 0 to swap RA movement direction
+#define DIRECTION_RA            1    // 1 or 0 to swap RA movement direction
 
 #define DEFAULT_POLE_RA         0    // default equatorial coordinates of the mount pole 
-#define DEFAULT_POLE_DEC        90   // these values are changed during alignment
+#define DEFAULT_POLE_DEC        -90   // these values are changed during alignment
 #define DEFUALT_RA_OFFSET       0    // offset of RA axis (defines where mount's local RA is 0)
 
 
@@ -50,6 +50,13 @@
 #define STEP_PIN_RA             PK5    // = A13
 #define DIR_PIN_RA              PK4    // = A12
 #define MS_PIN_RA               PK3    // = A11
+
+// #define STEP_PIN_DEC            PK2    // = A8 
+// #define DIR_PIN_DEC             PK1    // = A9
+// #define MS_PIN_DEC              PK0    // = A10
+// #define STEP_PIN_RA             PK5    // = A13
+// #define DIR_PIN_RA              PK4    // = A12
+// #define MS_PIN_RA               PK3    // = A11
 
 #define MICROSTEPPING_MUL       8   // level of microstepping (depends of your wiring of A4988 pins)
 

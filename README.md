@@ -19,7 +19,6 @@ See [future work](#future-work) for missing features (like communication via USB
 * Precise **tracking** (for any type of mount).
 * **Parking** to default position.
 * **Calibration** of **mount pole** which works similarly to All-Star polar alignement.
-* **Camera control** which alows you to take photos with predefined exposure time and with a predefined period.
 * **Wireless control** via IR remote control.
 * Real **asynchronous** control of **stepper motors** (any other code can be run in parallel). 
 
@@ -119,10 +118,6 @@ Take an **empty and formatted microSD** card and **copy there the content** of t
 #### 4. Real Time Clock
 
 The `src/rtc_ds3231.h` file contains implementation of `Clock` class for `DS3231` module. In case you use **other module** or you want to obtain time from NTP servers, **implement** the `Clock` interface and change some lines in `Star_Tracker.ino`.
-
-#### 5. Camera trigger
-
-Similarly, you may need to change the implementation of the camera trigger control. The `src/CanonEOS1000D.h` file contains implementation of `CameraController` class for *Canon EOS1000D*. If you have other camera with **other trigger logic**, you should **create a new implementation** of `CameraController` and change some lines at `Star_Tracker.ino`. Note that in this case, you may also need a different wiring!
 
 ## Notes on precision
 

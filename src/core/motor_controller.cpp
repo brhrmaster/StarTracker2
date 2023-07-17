@@ -34,6 +34,9 @@ void MotorController::initialize() {
         Serial.print(F("  TCCRxA: ")); Serial.println(TCCR5A, BIN);
         Serial.print(F("  TCCRxB: ")); Serial.println(TCCR5B, BIN);
         Serial.print(F("  TIMSKx: ")); Serial.println(TIMSK5, BIN);
+        Serial.print(F("  TIMER_TOP: ")); Serial.println(TIMER_TOP);
+        Serial.print(F("  OCR5A: ")); Serial.println(OCR5A);
+        Serial.print(F("  F_CPU: ")); Serial.println(F_CPU);
     #endif
 
     _commands = queue<command_t>(8);
@@ -157,6 +160,18 @@ void MotorController::turn_internal(command_t cmd, bool queueing) {
     _dec.start_steps_delay = cmd.delay_start_dec;
     _ra.start_steps_delay  = cmd.delay_start_ra;
 
+    #ifdef DEBUG
+        Serial.println(":: turn_internal ::");
+        Serial.println(F("effective_steps_dec:"));
+        Serial.print(effective_steps_dec);
+        Serial.println(F("_dec.start_steps_delay:"));
+        Serial.print(_dec.start_steps_delay);
+        Serial.println(F("effective_steps_ra:"));
+        Serial.print(effective_steps_ra);
+        Serial.println(F("_ra.start_steps_delay:"));
+        Serial.print(_ra.start_steps_delay);
+    #endif
+
     step_micros(_dec, effective_steps_dec * 2, _dec.start_steps_delay);
     step_micros(_ra,  effective_steps_ra  * 2, _ra.start_steps_delay);
 
@@ -190,6 +205,7 @@ void MotorController::step_micros(motor_data& data, long pulses, unsigned long m
     data.pulses_remaining = pulses;
 
     float mcu_ticks_per_pulse = micros_between_steps / 2.0 / TMR_RESOLUTION;
+    mcu_ticks_per_pulse = mcu_ticks_per_pulse > 20.0f ? 20.0f : mcu_ticks_per_pulse;
 
     #ifdef DEBUG
         Serial.println(F("MCU ticks per one pulse:"));

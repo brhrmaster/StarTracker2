@@ -24,6 +24,7 @@
 #define KP_KEY_RIGHT_ARROW   0x807F0AF5
 #define KP_KEY_LEFT_ARROW    0x807F8A75
 #define KP_KEY_OK            0x807FC837
+#define KP_KEY_VOL_PLUS      0x807F18E7
 
 #define KP_UPDATE_MS         200     
 
@@ -109,6 +110,7 @@ class Keypad {
                 case KP_KEY_LEFT_ARROW: return "LEFT";
                 case KP_KEY_RIGHT_ARROW: return "RIGHT";
                 case KP_KEY_OK: return "OK";
+                case KP_KEY_VOL_PLUS: return "Vol+";
                 case KP_KEY_CONTEXT: return "Context Menu";
                 case KP_KEY_1: return "1";
                 case KP_KEY_2: return "2";

@@ -30,7 +30,7 @@
 #define C_ARROW_DOWN            KP_KEY_DOWN_ARROW     
 #define C_ENTER					KP_KEY_OK
 #define C_EXIT					KP_KEY_BACK
-#define C_TRACKING				KP_KEY_OK
+#define C_TRACKING				KP_KEY_VOL_PLUS
 #define C_GOTO					KP_KEY_BACKSPACE
 #define C_POSITION				KP_KEY_CONTEXT
 #define C_PARKING				KP_KEY_HOME

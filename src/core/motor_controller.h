@@ -4,7 +4,7 @@
 #include "../config.h"
 #include "queue.h"
 
-#define TMR_RESOLUTION  64
+#define TMR_RESOLUTION  32
 #define TIMER_TOP (F_CPU / (1000000.0 / TMR_RESOLUTION))
 
 class MountController;
