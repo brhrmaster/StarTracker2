@@ -13,10 +13,10 @@
 
 /* ======================================== MOUNT ======================================= */
 
-#define REDUCTION_RATIO_DEC     2              // reduction ratio of DEC motor gearbox (1:8)
-#define REDUCTION_RATIO_RA      2              // reduction ratio of RA motor gearbox (1:8)
-#define DEG_PER_MOUNT_REV_DEC   4.5714285714286  // reduction ratio of DEC mount gears (1:67)
-#define DEG_PER_MOUNT_REV_RA    4.5714285714286  // reduction ratio of DEC mount gears (1:134)
+#define REDUCTION_RATIO_DEC     2.50              // reduction ratio of DEC motor gearbox 40/16 (5:2)
+#define REDUCTION_RATIO_RA      2.50              // reduction ratio of RA motor gearbox 40/16 (5:2)
+#define DEG_PER_MOUNT_REV_DEC   11.67             // reduction ratio of DEC mount gears 140/12 (35:3)
+#define DEG_PER_MOUNT_REV_RA    11.67             // reduction ratio of DEC mount gears 140/12  (35:3)
 
 #define DIRECTION_DEC           0    // 1 or 0 to swap DEC movement direction
 #define DIRECTION_RA            1    // 1 or 0 to swap RA movement direction
