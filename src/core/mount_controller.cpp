@@ -347,6 +347,23 @@ MountController::coord_t MountController::get_ra_speed_transform(deg_t ra_speed,
     else w_dec = z_derivative / w_dec; // arcsin derivative
     float w_ra = sqrt(1.0 - w_dec);
 
+    #ifdef DEBUG
+        Serial.println(F("Tracking data:"));
+        Serial.print(F("  real_ra: ")); Serial.println(ra_speed);
+        Serial.print(F("  ra_speed: ")); Serial.println(ra_speed);
+        Serial.print(F("  w_dec:    ")); Serial.println(w_dec);
+        Serial.print(F("  w_ra:   ")); Serial.println(w_ra);
+
+        Serial.print(F("  z_transformed: ")); Serial.println(z_transformed);
+        Serial.print(F("  z_derivative: ")); Serial.println(z_derivative);
+        
+        Serial.print(F("  coscos: ")); Serial.println(ra_speed);
+        Serial.print(F("  sinsin: ")); Serial.println(ra_speed);
+        
+        Serial.print(F("  pole.dec: ")); Serial.println(pole.dec);
+        Serial.print(F("  pole.ra: ")); Serial.println(ra_speed);
+    #endif
+
     return coord_t { ra_speed * w_dec, ra_speed * w_ra };
 }
 

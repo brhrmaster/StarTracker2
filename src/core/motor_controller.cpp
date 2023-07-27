@@ -121,7 +121,7 @@ void MotorController::turn_internal(command_t cmd, bool queueing) {
     #ifdef DEBUG
         Serial.println(F("Initializing new movement."));
         Serial.print(F("  revs DEC:       ")); Serial.println(cmd.revs_dec);
-        Serial.print(F("  resv RA:        ")); Serial.println(cmd.revs_ra);
+        Serial.print(F("  revs RA:        ")); Serial.println(cmd.revs_ra);
         Serial.print(F("  micro s. (t/f): ")); Serial.println(cmd.microstepping ? "enabled" : "disabled");
     #endif
 
@@ -162,14 +162,10 @@ void MotorController::turn_internal(command_t cmd, bool queueing) {
 
     #ifdef DEBUG
         Serial.println(":: turn_internal ::");
-        Serial.println(F("effective_steps_dec:"));
-        Serial.print(effective_steps_dec);
-        Serial.println(F("_dec.start_steps_delay:"));
-        Serial.print(_dec.start_steps_delay);
-        Serial.println(F("effective_steps_ra:"));
-        Serial.print(effective_steps_ra);
-        Serial.println(F("_ra.start_steps_delay:"));
-        Serial.print(_ra.start_steps_delay);
+        Serial.println(F("effective_steps_dec: ")); Serial.print(effective_steps_dec);
+        Serial.println(F("_dec.start_steps_delay: ")); Serial.print(_dec.start_steps_delay);
+        Serial.println(F("effective_steps_ra: ")); Serial.print(effective_steps_ra);
+        Serial.println(F("_ra.start_steps_delay: ")); Serial.print(_ra.start_steps_delay);
     #endif
 
     step_micros(_dec, effective_steps_dec * 2, _dec.start_steps_delay);
@@ -198,14 +194,17 @@ void MotorController::step_micros(motor_data& data, long pulses, unsigned long m
     data.current_steps_delay = micros_between_steps;
 
     #ifdef DEBUG
-        Serial.println(F("Steps to be done:"));
-        Serial.print(F("  ")); Serial.print(pulses / 2); Serial.print(F(", delay (us): ")); Serial.println(micros_between_steps);
+        Serial.println(F("Steps to be done: "));
+        Serial.print(F("  ")); 
+        Serial.print(pulses / 2); 
+        Serial.print(F(", delay (us): ")); 
+        Serial.println(micros_between_steps);
     #endif
 
     data.pulses_remaining = pulses;
 
     float mcu_ticks_per_pulse = micros_between_steps / 2.0 / TMR_RESOLUTION;
-    mcu_ticks_per_pulse = mcu_ticks_per_pulse > 20.0f ? 20.0f : mcu_ticks_per_pulse;
+    //mcu_ticks_per_pulse = mcu_ticks_per_pulse > 20.0f ? 20.0f : mcu_ticks_per_pulse;
 
     #ifdef DEBUG
         Serial.println(F("MCU ticks per one pulse:"));

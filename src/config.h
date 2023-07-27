@@ -19,7 +19,7 @@
 #define DEG_PER_MOUNT_REV_RA    11.67             // reduction ratio of DEC mount gears 140/12  (35:3)
 
 #define DIRECTION_DEC           0    // 1 or 0 to swap DEC movement direction
-#define DIRECTION_RA            1    // 1 or 0 to swap RA movement direction
+#define DIRECTION_RA            0    // 1 or 0 to swap RA movement direction
 
 #define DEFAULT_POLE_RA         0    // default equatorial coordinates of the mount pole 
 #define DEFAULT_POLE_DEC        -90   // these values are changed during alignment
@@ -51,14 +51,7 @@
 #define DIR_PIN_RA              PK4    // = A12
 #define MS_PIN_RA               PK3    // = A11
 
-// #define STEP_PIN_DEC            PK2    // = A8 
-// #define DIR_PIN_DEC             PK1    // = A9
-// #define MS_PIN_DEC              PK0    // = A10
-// #define STEP_PIN_RA             PK5    // = A13
-// #define DIR_PIN_RA              PK4    // = A12
-// #define MS_PIN_RA               PK3    // = A11
-
-#define MICROSTEPPING_MUL       8   // level of microstepping (depends of your wiring of A4988 pins)
+#define MICROSTEPPING_MUL       16   // level of microstepping (depends of your wiring of A4988 pins)
 
 #define STEPS_PER_REV_DEC       200     // number of steps per DEC motor revolution (200 for NEMA 17)
 #define STEPS_PER_REV_RA        200     // number of steps per RA motor revolution (200 for NEMA 17)
@@ -93,12 +86,12 @@
 #define DSP_ENABLE_PIN          11      // LCD enable pin
 #define DSP_REGISTER_SEL_PIN    12      // LCD register select pin
 
-/* ======================================== DEBUG ======================================= */
+/* ======================================== DEBUG ======================================= 
 
 #define DEBUG
 #define DEBUG_MOUNT
 #define DEBUG_TIME
 #define DEBUG_CONTROL
 #define DEBUG_KEYS
-
+*/
 #endif
