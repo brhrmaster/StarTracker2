@@ -69,6 +69,8 @@
 #define FAST_REVS_PER_SEC_DEC   1000000.0 / FAST_DELAY_START_DEC / STEPS_PER_REV_DEC 
 #define FAST_REVS_PER_SEC_RA    1000000.0 / FAST_DELAY_START_RA  / STEPS_PER_REV_RA
 
+#define MIN_FAST_VEL       18.0f
+
 
 /* ==================================== OTHER SETTINGS ================================== */
 

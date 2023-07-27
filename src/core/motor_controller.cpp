@@ -204,7 +204,7 @@ void MotorController::step_micros(motor_data& data, long pulses, unsigned long m
     data.pulses_remaining = pulses;
 
     float mcu_ticks_per_pulse = micros_between_steps / 2.0 / TMR_RESOLUTION;
-    mcu_ticks_per_pulse = mcu_ticks_per_pulse > 22.0f ? 22.0f : mcu_ticks_per_pulse;
+    mcu_ticks_per_pulse = mcu_ticks_per_pulse > MIN_FAST_VEL ? MIN_FAST_VEL : mcu_ticks_per_pulse;
 
     #ifdef DEBUG
         Serial.println(F("MCU ticks per one pulse:"));
