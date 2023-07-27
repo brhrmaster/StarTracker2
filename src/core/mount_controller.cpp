@@ -298,10 +298,10 @@ void MountController::set_tracking() {
     // of steppers speed and a clever correction (we are doing a conversion of a complex
     // sin/cos/sqrt function into a simple stair function) and it is hard.
 
-    float w = 15.0f;
+    float w = 10000.0f;
     
     coord_t target = get_global_mount_orientation();
-    coord_t speed = get_ra_speed_transform(w, 0.0f, target, _mount_pole, _mount_ra_offset);
+    coord_t speed = get_ra_speed_transform(w, 100.0f, target, _mount_pole, _mount_ra_offset);
 
     #ifdef DEBUG_MOUNT
         Serial.println(F("Tracking:"));

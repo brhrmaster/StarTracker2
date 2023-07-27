@@ -86,12 +86,12 @@
 #define DSP_ENABLE_PIN          11      // LCD enable pin
 #define DSP_REGISTER_SEL_PIN    12      // LCD register select pin
 
-/* ======================================== DEBUG ======================================= 
+/* ======================================== DEBUG ======================================= */
 
 #define DEBUG
 #define DEBUG_MOUNT
 #define DEBUG_TIME
 #define DEBUG_CONTROL
 #define DEBUG_KEYS
-*/
+
 #endif

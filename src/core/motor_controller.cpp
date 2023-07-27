@@ -106,8 +106,8 @@ void MotorController::fast_turn(float revs_dec, float revs_ra, boolean queueing)
 void MotorController::slow_turn(float revs_dec, float revs_ra, float speed_dec, float speed_ra, boolean queueing) {
     // revolutions per second convert to delay in micros
     // there might be some overflows, but nobody cares ... (hopefully)
-    unsigned long delay_dec = 1000000.0 / (speed_dec * STEPS_PER_REV_DEC * MICROSTEPPING_MUL);
-    unsigned long delay_ra  = 1000000.0 / (speed_ra  * STEPS_PER_REV_RA  * MICROSTEPPING_MUL);
+    unsigned long delay_dec = 10000000.0 / (speed_dec * STEPS_PER_REV_DEC * MICROSTEPPING_MUL);
+    unsigned long delay_ra  = 10000000.0 / (speed_ra  * STEPS_PER_REV_RA  * MICROSTEPPING_MUL);
     turn_internal({revs_dec, revs_ra, delay_dec, delay_ra, delay_dec, delay_ra, true}, queueing);
 }
 
@@ -204,7 +204,7 @@ void MotorController::step_micros(motor_data& data, long pulses, unsigned long m
     data.pulses_remaining = pulses;
 
     float mcu_ticks_per_pulse = micros_between_steps / 2.0 / TMR_RESOLUTION;
-    //mcu_ticks_per_pulse = mcu_ticks_per_pulse > 20.0f ? 20.0f : mcu_ticks_per_pulse;
+    mcu_ticks_per_pulse = mcu_ticks_per_pulse > 22.0f ? 22.0f : mcu_ticks_per_pulse;
 
     #ifdef DEBUG
         Serial.println(F("MCU ticks per one pulse:"));
